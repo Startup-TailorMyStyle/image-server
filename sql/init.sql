@@ -1,0 +1,1 @@
+SELECT 'Script is running successfully!' as message;
