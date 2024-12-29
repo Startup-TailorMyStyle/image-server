@@ -1,1 +1,6 @@
 Generic single-database configuration.
+
+Run the following command to upgrade the database:
+```
+alembic upgrade head
+```
