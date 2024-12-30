@@ -1,10 +1,14 @@
 import logging
+import os
 from functools import cache
 from sqlalchemy import create_engine, Engine
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.engine import URL
 from sqlalchemy.pool import QueuePool
 
 logger = logging.getLogger(__name__)
+
+Base = declarative_base()
 
 @cache
 def get_db_engine() -> Engine:
@@ -23,7 +27,7 @@ def build_connection_string() -> URL:
         drivername="postgresql+psycopg2",
         username="test",
         password="test",
-        host="localhost",
+        host=os.getenv("DATABASE_HOST", "localhost"),
         port=5432,
         database="test",
     )

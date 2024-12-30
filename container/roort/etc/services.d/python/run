@@ -8,10 +8,5 @@ START_APP="uvicorn image_server.main:app --host 0.0.0.0 --port 8000"
 # Ensure app is running from virtual environment
 source activate env
 
-echo "Updating the DB"
-pushd ${PYTHON_APP_FOLDER}/image_server
-alembic upgrade head
-popd
-
 echo "Starting application with command line: ${START_APP}"
 exec s6-setuidgid asruser cd ${PYTHON_APP_FOLDER} ${START_APP}

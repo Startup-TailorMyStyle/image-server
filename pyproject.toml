@@ -10,6 +10,8 @@ packages = [{include = "image_server", from = "src"}]
 python = "^3.12"
 fastapi-sqlalchemy = "^0.2.1"
 psycopg2 = "^2.9.10"
+uvicorn = "^0.34.0"
+fastapi = "^0.115.6"
 
 
 [build-system]
